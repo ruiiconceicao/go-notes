@@ -6,7 +6,7 @@ echo "A iniciar deployment..."
 cd /home/appuser/go-notes
 
 echo "A fazer git pull..."
-git pull origi main
+git pull origin main
 
 echo "hammer_and_wrench: A compilar..."
 /usr/bin/go build -o go-notes-app .

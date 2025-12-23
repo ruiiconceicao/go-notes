@@ -1,0 +1,23 @@
+:80 {
+	log {
+		output file /var/log/caddy/access.log
+	}
+
+	# Landing Page (ficheiros estáticos)
+	handle {
+		root * /srv/website
+		file_server
+	}
+
+	# Interface da Base de Dados (Adminer)
+	handle /db-admin/* {
+		uri strip_prefix /db-admin
+		reverse_proxy adminer:8080
+	}
+
+	# Aplicação Go (Reverse Proxy)
+	handle /app/* {
+		# "app" é o nome do serviço no docker-compose
+		reverse_proxy app:8080
+	}
+}

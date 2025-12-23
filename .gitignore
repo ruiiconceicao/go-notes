@@ -1,0 +1,7 @@
+caddy_logs/
+*.log
+
+go-notes-app
+
+.env
+
